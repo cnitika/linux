@@ -1,0 +1,55 @@
+
+🔍 Investigating Ctrl+C and Ctrl+Z in Linux: What Really Happens?
+
+In a Linux terminal, when you press Ctrl+C or Ctrl+Z during a running process, you're sending signals to control the process. Here's how it works:
+
+🟥 Ctrl+C — Interrupt Signal (SIGINT)
+-------------------------------------
+- Signal sent: SIGINT (Signal Interrupt)
+- Signal number: 2
+- What it does: Immediately stops (terminates) the foreground process.
+- Equivalent command:
+  kill -2 <PID>
+
+Example:
+1. Run a long process (like sleep):
+   sleep 100
+2. Press Ctrl+C in the terminal.
+3. This sends SIGINT to the process and terminates it.
+
+🟨 Ctrl+Z — Terminal Stop Signal (SIGTSTP)
+------------------------------------------
+- Signal sent: SIGTSTP (Terminal Stop)
+- Signal number: 20
+- What it does: Suspends (pauses) the process and pushes it to the background.
+- Equivalent command:
+  kill -20 <PID>
+
+Example:
+1. Run a command:
+   cat
+2. Press Ctrl+Z in the terminal.
+3. The process is paused and can be resumed with:
+   fg    (brings it back to foreground)
+   bg    (continues it in the background)
+
+🛠️ Useful Commands for Process Control:
+---------------------------------------
+- fg       → Resume suspended job in foreground
+- bg       → Resume suspended job in background
+- jobs     → List suspended/background jobs
+- kill     → Send custom signals to processes
+
+📌 Bonus: Trap These Signals in Bash
+You can even trap these signals to see custom messages:
+
+trap "echo Interrupted!" SIGINT
+trap "echo Stopped!" SIGTSTP
+
+Run a loop:
+while true; do sleep 1; done
+
+Then press Ctrl+C or Ctrl+Z to see the message.
+
+🎯 Conclusion:
+Ctrl+C and Ctrl+Z are more than just shortcuts—they're system signals controlling process behavior. Behind the scenes, it’s just clean signal handling using `kill -2` and `kill -20`.
