@@ -1,0 +1,69 @@
+1. 🗂️ File Manager (Nautilus)
+Used For: Browsing files, dragging and dropping, managing folders.
+
+GUI Name: Nautilus (default in GNOME)
+
+*Command Behind It:
+>>nautilus
+*Open a specific folder:
+>>nautilus /home/yourusername/Downloads
+
+
+2. ✍️ Text Editor (Gedit)
+Used For: Writing scripts, taking notes, editing configs.
+
+GUI Name: Gedit (GNOME's default editor)
+
+*Command Behind It:
+>>gedit
+*With a file:
+>>gedit my_script.py
+
+
+3. 🖥️ Terminal (GNOME Terminal)
+Used For: Typing commands, running scripts, hacking like a movie star.
+
+GUI Name: GNOME Terminal
+
+*Command Behind It:
+>>gnome-terminal
+*With multiple tabs:
+>>gnome-terminal --tab -- bash -c "htop"
+
+
+4. 📊 System Monitor (Task Manager)
+Used For: Checking running processes, killing stuck apps, resource usage.
+
+GUI Name: GNOME System Monitor
+
+*Command Behind It:
+>>gnome-system-monitor
+
+
+5. 🎵 Rhythmbox (Music Player)
+Used For: Playing audio, managing playlists.
+
+GUI Name: Rhythmbox
+
+*Command Behind It:
+>>rhythmbox
+*Headless/Remote Control:
+>>rhythmbox-client --play
+
+
+
+💡 How to Find the Command for ANY App?
+1.Right-click the app → Properties → check the command field.
+2.Or view .desktop file:
+ >>cat /usr/share/applications/gedit.desktop
+
+
+
+
+
+
+
+
+
+
+
